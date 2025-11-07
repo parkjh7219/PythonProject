@@ -70,3 +70,31 @@ print('10은', result )
 num2 = 3
 result = '짝수' if (num2 % 2 == 0) else '홀수'
 print('3은', result )
+
+
+# 파이썬 표준 출력
+# 프로그램의 실행결과를 화면 (콘솔/터미널)에 출력하는 것을 의미
+# 파이썬에서는 print()를 통해 수행
+
+print("Hello", "World", "!!")
+print("Hello", "World", "!!", sep=',')
+print("Hello", "World", "!!", sep='-')
+
+print('1') # print함수의 종결문자는 \n (줄바꿈)
+print('2')
+print('3')
+print('4')
+print('5')
+
+print('1', end = '') # 종결문자에 공백지정
+print('2', end = '')
+print('3', end = '')
+print('4', end = '')
+print('5')
+
+print("*objects, sep='', end='-', file=sys.stdout, flush=False")
+
+# 긴 텍스트를 두줄 이상으로 나눠 작성하고 싶을 때 \를 사용
+print("*objects, sep='', end='-',\
+file=sys.stdout, flush=False")
+
