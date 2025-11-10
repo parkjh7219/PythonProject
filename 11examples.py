@@ -77,7 +77,7 @@ result = f'''
 print(result)
 
 
-# 26
+# 261
 import random
 
 # 1~100 사이 임의의 난수 생성
