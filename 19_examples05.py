@@ -210,31 +210,41 @@
 # print(result)
 
 
-# num = input('6자리 카드번호를 입력하세요: ')
-# type = '식별안됨'
-# bank = '식별안됨'
-# result = ''
-#
-# if len(num) == 6:
-#     match num[0]:
-#         case 3:
-#             type = 'JCB카드'
-#             match num[1]:
-#                 case '56317': bank = 'NH농협카드'
-#                 case '56901': bank = '신한카드'
-#                 case '56912': bank = 'KB국민카드'
-#         case 4:
-#             type = '비자카드'
-#         case 5:
-#             type = 'JCB카드'
-#             match num[1]:
-#                 case '56317': bank = 'NH농협카드'
-#                 case '56901': bank = '신한카드'
-#                 case '56912': bank = 'KB국민카드'
-#         case _: pass
+while True:
 
+    type = '식별안됨'
+    bank = '식별안됨'
 
+    num = input('6자리 카드번호를 입력하세요: ')
 
+    if len(num) == 6:
+        match num[0]:
+            case '3': # 작은 따옴표 잊지 마세요 !! 여기서 30분 헤맴
+                type = 'JCB카드'
+                match num[1:]:
+                    case '56317': bank = 'NH농협카드'
+                    case '56901': bank = '신한카드'
+                    case '56912': bank = 'KB국민카드'
+            case '4':
+                type = '비자카드'
+                match num[1:]:
+                    case '04825': bank = '비씨카드'
+                    case '38676': bank = '신한카드'
+                    case '57973': bank = '국민은행'
+            case '5':
+                type = 'JCB카드'
+                match num[1:]:
+                    case '15594': bank = '신한카드'
+                    case '24353': bank = '외환카드'
+                    case '40926': bank = '국민은행'
+            case _:
+                print('카드 번호를 확인해서 다시 입력 해주세요.')
+    else:
+        print('6자리가 입력되지 않았습니다.')
 
+    result = f'카드 종류 및 은행: {type} - {bank}'
+    print(result)
 
-
+    qus = input('다시 해보시겠어요?(y,n) : ')
+    if qus == 'n':
+        break

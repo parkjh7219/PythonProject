@@ -26,16 +26,6 @@ header = '''
 
 while True:
     job = input(menus)
-    #
-    # if job == '1': print ('성적 데이터 입력을 진행합니다.')
-    # elif job == '2': print ('성적 데이터 조회를 진행합니다.')
-    # elif job == '3': print ('성적 데이터 상세 조회를 진행합니다.')
-    # elif job == '4': print ('성적 데이터 수정을 진행합니다.')
-    # elif job == '5': print ('성적 데이터 삭제를 진행합니다.')
-    # elif job == '0':
-    #     print ('성적 처리 프로그램을 종료합니다.')
-    #     break
-    # else: print('번호를 잘못 입력하셨습니다.')
 
     match job:
         case '1':
