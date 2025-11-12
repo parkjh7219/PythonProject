@@ -76,26 +76,26 @@ for i in range(1, 9+1):
 print(result)
 
 
-# 32 주민번호 검사 - 반복문으로 재작성
-jumin = '450124-1234590'
-sum = 0
-
-# a, b
-wght = 2
-for i in range(0, 5+1):
-    #print(jumin[i], wght + i, end=', ')
-    sum += int(jumin[i]) * (wght + i) # 2,3,4,5,6,7
-
-for i in range(7, 8+1):
-    #print(jumin[i], wght + (i - 1), end=', ')
-    sum += int(jumin[i]) * (wght + i - 1) # 8, 9
-
-for i in range(9, 12+1):
-    #print(jumin[i], wght + (i - 9), end=', ')
-    sum += int(jumin[i]) * (wght + (i - 9)) # 2,3,4,5
-
-print(sum)
-
-# c, d
-checker = 11 - (sum % 11)
-print(checker, str(checker)[-1] == jumin[13])
+# # 32 주민번호 검사 - 반복문으로 재작성
+# jumin = '450124-1234590'
+# sum = 0
+#
+# # a, b
+# wght = 2
+# for i in range(0, 5+1):
+#     #print(jumin[i], wght + i, end=', ')
+#     sum += int(jumin[i]) * (wght + i) # 2,3,4,5,6,7
+#
+# for i in range(7, 8+1):
+#     #print(jumin[i], wght + (i - 1), end=', ')
+#     sum += int(jumin[i]) * (wght + i - 1) # 8, 9
+#
+# for i in range(9, 12+1):
+#     #print(jumin[i], wght + (i - 9), end=', ')
+#     sum += int(jumin[i]) * (wght + (i - 9)) # 2,3,4,5
+#
+# print(sum)
+#
+# # c, d
+# checker = 11 - (sum % 11)
+# print(checker, str(checker)[-1] == jumin[13])

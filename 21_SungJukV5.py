@@ -2,12 +2,17 @@
 # 3명의 학생의 이름, 국어, 영어, 수학 점수를 키보드로 입력받아
 # 총점, 평균, 학점을 처리한 뒤 결과 출력
 # 성적 처리의 CRUD를 메뉴식으로 구현
+# 성적 데이터를 시퀀스 자료형에 저장
 
-# CRUD : 데이터의 추가 조회 수정 삭제
+# sungjuks = [
+#     ['혜교', 99, 98, 99, 297, 99.99, 'A'],
+#     ['지현', 33, 44, 55, 197, 77.99, 'C'],
+#     ['수지', 77, 88, 99, 235, 85.99, 'B'],
+# ]
 
 menus = f'''
 -----------------
-성적 처리 프로그램 V4
+성적 처리 프로그램 V5
 -----------------
 
 1. 성적 데이터 입력
@@ -24,18 +29,10 @@ header = '''
 ==================================
 '''
 
+sungjuks = [] # 성적 데이터 저장용 변수
+
 while True:
     job = input(menus)
-    #
-    # if job == '1': print ('성적 데이터 입력을 진행합니다.')
-    # elif job == '2': print ('성적 데이터 조회를 진행합니다.')
-    # elif job == '3': print ('성적 데이터 상세 조회를 진행합니다.')
-    # elif job == '4': print ('성적 데이터 수정을 진행합니다.')
-    # elif job == '5': print ('성적 데이터 삭제를 진행합니다.')
-    # elif job == '0':
-    #     print ('성적 처리 프로그램을 종료합니다.')
-    #     break
-    # else: print('번호를 잘못 입력하셨습니다.')
 
     match job:
         case '1':
@@ -50,11 +47,20 @@ while True:
                    'B' if (avg >= 80) else
                    'C' if (avg >= 70) else
                    'D' if (avg >= 60) else 'F')
+            
+            # 입력 받아 처리한 성적 데이터를 리스트로 만들어
+            sj = [name, kor, eng, mat, tot, avg, grd] # 자료형 변환 없이 그대로 들어감 , 동일 자료형만 적으라고 했는데?..
+            # sungjuks 라는 리스트에 저장
+            sungjuks.append(sj)
+
             print('입력한 데이터 대해 성적처리가 완료되었습니다')
 
         case '2':
-            result = f'{name:3s}{kor:3d} {eng:3d} '\
+            result =''
+            for name, kor, eng, mat, tot, avg, grd in sungjuks:
+                result += f'{name:3s}{kor:3d} {eng:3d} '\
                        f'{mat:3d} {tot:3d} {avg:.2f} {grd:3s}\n'
+
             print(f'{header}{result}')
 
         case '3': print ('성적 데이터 상세 조회를 진행합니다.')
