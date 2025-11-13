@@ -63,39 +63,39 @@ import random
 
 
 # 30 구구단 테이블 - 반복문으로 재작성
-result = f'''
-          Multiplication Table
-      1   2   3   4   5   6   7   8   9
----------------------------------------
-'''
+# result = f'''
+#           Multiplication Table
+#       1   2   3   4   5   6   7   8   9
+# ---------------------------------------
+# '''
+#
+# for i in range(1, 9+1):
+#     result += f'{i} | {i*1:3d} {i*2:3d} {i*3:3d} {i*4:3d} '\
+#               f'{i*5:3d} {i*6:3d} {i*7:3d} {i*8:3d} {i*9:3d}\n'
+#
+# print(result)
+#
 
-for i in range(1, 9+1):
-    result += f'{i} | {i*1:3d} {i*2:3d} {i*3:3d} {i*4:3d} '\
-              f'{i*5:3d} {i*6:3d} {i*7:3d} {i*8:3d} {i*9:3d}\n'
+# 32 주민번호 검사 - 반복문으로 재작성
+jumin = '450124-1234590'
+sum = 0
 
-print(result)
+# a, b
+wght = 2
+for i in range(0, 5+1):
+    #print(jumin[i], wght + i, end=', ')
+    sum += int(jumin[i]) * (wght + i) # 2,3,4,5,6,7
 
+for i in range(7, 8+1):
+    #print(jumin[i], wght + (i - 1), end=', ')
+    sum += int(jumin[i]) * (wght + i - 1) # 8, 9
 
-# # 32 주민번호 검사 - 반복문으로 재작성
-# jumin = '450124-1234590'
-# sum = 0
-#
-# # a, b
-# wght = 2
-# for i in range(0, 5+1):
-#     #print(jumin[i], wght + i, end=', ')
-#     sum += int(jumin[i]) * (wght + i) # 2,3,4,5,6,7
-#
-# for i in range(7, 8+1):
-#     #print(jumin[i], wght + (i - 1), end=', ')
-#     sum += int(jumin[i]) * (wght + i - 1) # 8, 9
-#
-# for i in range(9, 12+1):
-#     #print(jumin[i], wght + (i - 9), end=', ')
-#     sum += int(jumin[i]) * (wght + (i - 9)) # 2,3,4,5
-#
-# print(sum)
-#
-# # c, d
-# checker = 11 - (sum % 11)
-# print(checker, str(checker)[-1] == jumin[13])
+for i in range(9, 12+1):
+    #print(jumin[i], wght + (i - 9), end=', ')
+    sum += int(jumin[i]) * (wght + (i - 9)) # 2,3,4,5
+
+print(sum)
+
+# c, d
+checker = 11 - (sum % 11)
+print(checker, str(checker)[-1] == jumin[13])
