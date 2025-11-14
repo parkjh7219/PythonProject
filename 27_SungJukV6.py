@@ -12,7 +12,8 @@
 # ]
 
 from parkjh7269.sungjukv6_lib import menus
-from parkjh7269.sungjukv6_lib import header
+from parkjh7269.sungjukv6_lib import header1
+from parkjh7269.sungjukv6_lib import header2
 
 from parkjh7269.sungjukv6_lib import input_sungjuk, compute_sungjuk, add__sungjuk
 from parkjh7269.sungjukv6_lib import readall_sungjuk
@@ -27,24 +28,24 @@ while True:
 
     match job:
         case '1':
-            input_sungjuk()
-            compute_sungjuk()
-            add__sungjuk()
+            name, kor, eng, mat = input_sungjuk()
+            sj = compute_sungjuk(name, kor, eng, mat)
+            add__sungjuk(sj,sungjuks)
 
         case '2':
-            readall_sungjuk()
+            readall_sungjuk(sungjuks)
 
         case '3':
-            readone_sungjuk()
+            readone_sungjuk(sungjuks)
 
         case '4':
-            modify_sungjuk()
+            modify_sungjuk(sungjuks)
 
         case '5':
-            remove_sungjuk()
+            remove_sungjuk(sungjuks)
 
         case '0':
             print('성적 처리 프로그램을 종료합니다.')
             break
         case _:
-            print('번호를 잘못 입력하셨습니다.')  # _는 위 번호 외 나머지
+            print('번호를 잘못 입력하셨습니다.')

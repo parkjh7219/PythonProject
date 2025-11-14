@@ -1,7 +1,19 @@
 # 21
 def compute_tax(salary,isMarried):
-    tax = 0
-    rate = 0
+    """
+    결혼 여부와 연봉을 입력하면 세율과 세금을 계산해줍니다 # 함수의 설명은 큰 따움표 3개
+
+        prameters :
+            isMarried : 결혼 여부
+            salart : 연봉
+
+        return:    # 타입을 알려준다
+            list : (rate, tax)
+                - int : 세율
+                - float : 세금
+    """
+
+    tax,rate = 0
 
     if isMarried == 'n':
         if salary < 3000:
@@ -24,6 +36,9 @@ def compute_tax(salary,isMarried):
     '''
 
     return result
+
+# 만일 두개의 값을 보낼 시 return rate, tax라고 적는다
+# 본 코드에서는 rate, tax = compute_tax(salary,isMarried)
 
 # 23 a
 def lotto999(mykey,lotto):
@@ -68,7 +83,9 @@ def lotto999_repeat(mykey,lotto):
                 match += 1
     return match
 
-def lotto999_case(match):
+def lotto999_case(match): 
+    # 함수 명은 동사 혹은 동사 + 명사로 작성  / 정보를 가져올 때 get(간단), read(자세한)
+    # 변수는 명사로 작성
 
     prize = 0
     message = '일치하는 숫자가 없습니다'
@@ -98,7 +115,13 @@ def lotto999_output(lotto,mykey,match,prize):
 
 # 24
 
-def gugudan(dan):
+def generate_gugudan(dan): # 만들 때 generate 사용
+    """
+    단을 입력받아 구구단을 출력하는 함수
+
+    :param dan:
+    :return:
+    """
     if 1 <= dan <= 9:
         result = f'=== {dan}단 ===\n'
         for i in range(1, 9 + 1):
@@ -108,3 +131,23 @@ def gugudan(dan):
     return result
 
 # 32
+
+def check_jumun(jumin):
+    """
+    입력한 주민번호가 올바른 것인지 확인하는 함수
+
+    :param jumin:
+    :return:
+    """
+    sum - 0
+    code = [int(j) for j in jumin if j.isdigit()]  # 코드 한줄로 줄여보기
+
+    wght = [(i % 8) + 2 for i in range(12)]
+
+    for i in range(12):
+        sum += code[i] * wght[i]
+
+    checker = 11 - (sum % 11)
+    isvalid = str(checker)[-1] == jumin
+
+    return code, wght, sum, isvalid

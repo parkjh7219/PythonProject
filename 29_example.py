@@ -7,6 +7,7 @@
 #     isMarried = input('결혼 여부를 입력하세요 (y:결혼, n:미혼)?').lower()
 #
 #     result = compute_tax(salary,isMarried)
+#     # 함수를 적을 때 2줄을 띄운다 , # 함수 클릭 후 comtrol + b 를 누르면 함수 정의 위치로 이동 가능
 #
 #     print(result)
 #     cont = input ('계속하시겠습니까?(y/n)').lower()
@@ -41,7 +42,7 @@
 #     lotto = str(random.randint(123, 789))
 #     mykey = input('복권 숫자 3자리를 입력하세요 (예:123): ')
 #
-#     match = lotto999_repeat(mykey,lotto)
+#     match = lotto999_repeat(mykey,lotto) # 캡슐화
 #     prize = lotto999_case(match)
 #     result = lotto999_output(lotto,mykey,match,prize)
 #
@@ -52,36 +53,35 @@
 
 # 24 - 함수로 재작성 : gugudan
 
-# from parkjh7269.example import gugudan
+# from parkjh7269.example import generate_gugudan
 #
 # dan = int(input('출력할 구구단 단수를 입력하세요 (1-9): '))
 #
-# result = gugudan(dan)
+# result = generate_gugudan(dan)
 #
 # print(result)
 
 # 32 - 함수로 재작성 : checkJumin
+from parkjh7269.example import check_jumun
 
-# jumin = '450124-1234590'
-# sum = 0
-#
-# code = []
-#
-# code = [int(j) for j in jumin if j.isdigit()] # 코드 한줄로 줄여보기
-#
-# print(f'추출된 주민번호 : {code}')
-#
-# wght = []
-#
-#
-# wght = [(i % 8) + 2 for i in range(12)]
-#
-# print(f'자동생성된 가중치 :{wght}')
-#
-# for i in range(12):
-#     sum += code[i] * wght[i]
-#
-# print(sum)
-#
-# checker = 11 - (sum % 11)
-# print(checker, str(checker)[-1] == jumin[13])
+jumin = '450124-1234590'
+
+code, wght, sum= check_jumun(jumin)
+
+print(code, wght, sum)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
