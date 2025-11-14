@@ -62,7 +62,7 @@
 # print(result)
 
 # 32 - 함수로 재작성 : checkJumin
-from parkjh7269.example import check_jumun
+from parkjh7269.example_lib import check_jumun
 
 jumin = '450124-1234590'
 
