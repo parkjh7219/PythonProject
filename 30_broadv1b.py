@@ -9,6 +9,9 @@
 from parkjh7269.boardv1_lib import menus
 from parkjh7269.boardv1_lib import write_board
 from parkjh7269.boardv1_lib import list_board
+from parkjh7269.boardv1_lib import view_board
+from parkjh7269.boardv1_lib import modify_board
+from parkjh7269.boardv1_lib import remove_board
 
 boards = []
 
@@ -25,8 +28,16 @@ while True :
         case '2' :
             list_board(boards)
 
-        case '3' : pass
-        case '4' : pass
-        case '5' : pass
-        case '0' : break
+        case '3' :
+            view_board(boards)
+
+        case '4' :
+            modify_board(boards)
+
+        case '5' :
+            remove_board(boards)
+
+        case '0' :
+            break
+
         case _ : print('번호를 잘못 입력하셨습니다')

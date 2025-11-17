@@ -103,3 +103,44 @@ def list_board(boards):
         result += f'{bd[0]} {bd[1]} {bd[2]} {bd[5][:10]} {bd[4]}\n'
 
     print(f'{header1}{result}')
+
+def view_board(boards):
+    bno = int(input('조회할 글 번호를 입력하세요 : '))
+    result = '해당 게시물이 존재하지 않습니다😒😒'
+
+    for bd in boards:
+        if bd[0] == bno:
+            result = '\n=====본문내용=====\n'
+            result += f'글 번호 : {bd[0]}\n'
+            result += f'제목 : {bd[1]}\n'
+            result += f'작성자 : {bd[2]}\n'
+            result += f'조회수 : {bd[3]}\n'
+            result += f'작성일 : {bd[4]}\n'
+            result += f'본문 : {bd[5]}\n'
+
+            print(result)
+
+def modify_board(boards):
+    bno = int(input('수정할 글 번호를 입력하세요 : '))
+    result = '해당 게시물이 존재하지 않습니다😒😒'
+
+    for bd in boards:
+        if bd[0] == bno:
+            new_title = input(f'새 제목 : ({bd[1]}) : ')
+            new_contents = input(f'새 본문 : ({bd[3]}) : ')
+            bd[1] = new_title
+            bd[3] = new_contents
+            result = '🎇🎇🎇해당 게시물이 수정되었습니다🎇🎇🎇'
+
+    print(result)
+
+def remove_board(boards):
+    bno = int(input('삭제할 글 번호를 입력하세요 : '))
+    result = '해당 게시물이 존재하지 않습니다😒😒'
+
+    for bd in boards:
+        if bd[0] == bno:
+            boards.remove(bd) # ! !
+            result = '😒😒해당 게시글을 삭제했습니다'
+
+        print(result)

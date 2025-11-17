@@ -39,7 +39,7 @@ def input_sungjuk():
 def compute_sungjuk(name, kor, eng, mat):
     """
     성적 데이터에 대한 총점 , 평균 , 학점 처리
-    :return: 
+    :return:
     """
     tot = kor + eng + mat
     avg = tot / 3
@@ -52,7 +52,7 @@ def compute_sungjuk(name, kor, eng, mat):
 def add__sungjuk(sj,sungjuks):
     """
     처리한 성적 데이터를 리스트에 추가
-    :return: 
+    :return:
     """
     # sj = [name, kor, eng, mat, tot, avg, grd]
     # 리스트를 만들지 않으면 20번 줄이 def add__sungjuk(name, kor, eng, mat, tot, avg, grd, sj, sungjuks)
@@ -61,8 +61,8 @@ def add__sungjuk(sj,sungjuks):
 def readall_sungjuk(sungjuks):
     """
     저장된 성적 데이터 중 이름/국어/영어/수학만 출력
-    :param sungjuks: 
-    :return: 
+    :param sungjuks:
+    :return:
     """
 
     result = ''
@@ -134,3 +134,14 @@ def remove_sungjuk(sungjuks):
 
     print(result)
 
+def write_sungjuk(sungjuks):
+    fname = 'sungjuk.csv'
+    with open(fname, 'a', encoding='utf-8') as f:
+        sungjuk = f'"{sungjuks}" \n'
+        f.write(sungjuk)
+
+def load_sungjuk():
+    fname = 'sungjuk.csv'
+    f = open(fname, 'r', encoding='UTF-8')
+    print(f.read())
+    f.close()
