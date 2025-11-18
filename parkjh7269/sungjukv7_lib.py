@@ -3,7 +3,7 @@
 
 menus = f'''
 -----------------
-성적 처리 프로그램 V6
+성적 처리 프로그램 V7
 -----------------
 
 1. 성적 데이터 입력
@@ -23,6 +23,9 @@ header2 = '''
 이름  국어  영어  수학  총점  평균  학점
 ==================================
 '''
+
+fname = 'sungjuk.csv'
+import csv
 
 def input_sungjuk():
     """
@@ -135,13 +138,25 @@ def remove_sungjuk(sungjuks):
     print(result)
 
 def write_sungjuk(sungjuks):
-    fname = 'sungjuk.csv'
-    with open(fname, 'a', encoding='utf-8') as f:
-        sungjuk = f'"{sungjuks}" \n'
-        f.write(sungjuk)
+
+    with open (fname, 'w', encoding = 'utf-8') as f:
+        for sj in sungjuks:
+            row = f'{sj[0]}, {sj[1]}, {sj[2]}, {sj[3]}, {sj[4]}, {sj[5]}, {sj[6]}\n'
+            f.write(row)
 
 def load_sungjuk():
-    fname = 'sungjuk.csv'
-    f = open(fname, 'r', encoding='UTF-8')
-    print(f.read())
-    f.close()
+    """
+    성적.csv 파일의 내용을 읽어서 리스트 변수에 저장
+    :return:
+    """
+    sungjuks = []
+
+    with open(fname , 'r', encoding= 'utf-8') as f:
+        reader = csv.reader(f)
+        for items in reader:
+            # 문자열로 저장된 성적 데이터를 원래 자료형식에 맞게 변환작업 추가
+            sj = [items[0], int(items[1]), int(items[2]), int(items[3]),
+                  int(items[4]), float(items[5]), items[6]]
+            sungjuks.append(sj)
+        return sungjuks
+
