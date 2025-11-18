@@ -1,4 +1,4 @@
-# 성적 처리프로그램 V4
+# 성적 처리프로그램 V7
 # 3명의 학생의 이름, 국어, 영어, 수학 점수를 키보드로 입력받아
 # 총점, 평균, 학점을 처리한 뒤 결과 출력 - 학생 번호도 추가
 # 성적 처리의 CRUD를 메뉴식으로 구현
@@ -23,6 +23,7 @@ from parkjh7269.sungjukv7_lib import load_sungjuk
 
 # 성적데이터가 저장된 sungjuk.csv로부터 저장된 성적 데이터를 모두 읽어
 # sungjuk 변수에 저장
+
 sungjuks = load_sungjuk()  # 성적 데이터 저장용 변수
 
 while True:
