@@ -1,0 +1,15 @@
+
+2025-11-18 16:05:52,781 - ERROR - 예외 상황 발생 ! : division by zero
+2025-11-18 16:05:52,786 - ERROR - 스택 트레이스 : Traceback (most recent call last):
+  File "C:\Users\rotlqkf\PycharmProjects\PythonProject\36_logging.py", line 31, in <module>
+    result = 10 / x
+             ~~~^~~
+ZeroDivisionError: division by zero
+
+2025-11-18 16:05:56,357 - ERROR - 예외 상황 발생 ! : invalid literal for int() with base 10: 'a'
+2025-11-18 16:05:56,364 - ERROR - 스택 트레이스 : Traceback (most recent call last):
+  File "C:\Users\rotlqkf\PycharmProjects\PythonProject\36_logging.py", line 30, in <module>
+    x = int(input('숫자를 하나 입력하세요 : '))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a'
+
