@@ -17,7 +17,6 @@ from parkjh7269.sungjukv8_lib import modify_sungjuk
 from parkjh7269.sungjukv8_lib import remove_sungjuk
 from parkjh7269.sungjukv8_lib import load_sungjuk
 from parkjh7269.sungjukv8_lib import write_sungjuk
-from parkjh7269.sungjukv8_lib import sungjuk_logging
 
 
 # sungjuk.csv로 부터 저장된 성적데이터를 모두 읽어
@@ -32,7 +31,6 @@ from parkjh7269.sungjukv8_lib import sungjuk_logging
 #     [3,'수지',77,88,99, 235,85.99,'B']
 # ]
 
-sungjuk_logging()
 sungjuks = load_sungjuk()
 
 while True:
