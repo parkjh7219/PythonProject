@@ -19,12 +19,159 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="ebc15617-2955-4d9a-b5d5-7454b5720702">
-      <console name="pythonproject" type="STANDARD" schema="main" session="Main"><![CDATA[select * from emp;]]></console>
+      <console name="pythonproject" type="STANDARD" schema="main" session="Main" />
+      <console name="sql01" type="STANDARD" schema="main" session="Main"><![CDATA[-- 고객 테이블 모든 컬럼 조회
+select * from 고객;
+
+
+-- 고객 : 고객번호, 담당자명, 고객회사명, 마일리지 조회
+select 고객번호, 담당자명, 고객회사명, 마일리지 from 고객;
+
+-- 고객 : 10% 인상된 마일리지 조회
+select 마일리지 * 1.1 from 고객;
+select 고객번호, 마일리지, round (마일리지 * 1.1) from 고객;
+
+-- 고객 : 마일리지는 '포인트'러
+-- round (마일리지 * 1.1)는 '10% 인상된 마일리지'로 별칭 부여
+select 고객번호, 마일리지 as 포인트, round (마일리지 * 1.1) as "10% 인상된 마일리지" from 고객;
+
+select 고객번호, 마일리지 포인트, round (마일리지 * 1.1) "10% 인상된 마일리지" from 고객;
+
+-- 예제 2-1,'where 절 사용'
+
+-- 고객 : 마일리지가 10000 이상인 고객의 
+-- 고객번호, 담당자명, 마일리지 조회
+select 고객번호, 담당자명, 마일리지 from 고객
+where 마일리지 >= 100000;
+
+-- 고객 : 도시가 서울인 고객의 
+-- 고객번호, 도시 조회
+select 고객번호, 도시 from 고객
+where 도시 = '서울특별시';
+
+-- 고객 : 담당자 직위가 영업사원임 고객의
+-- 고객번호, 담당자직위 조회
+select 고객번호, 담당자직위 from 고객
+where 담당자직위 = '영업 사원';
+
+-- 고객 : 고객번호, 담당자명, 도시, 마일리지 조회
+-- 서울 특별시에 거주하는 고객을 대상으로 마일리지 많은 순서대로 출력
+select 고객번호, 담당자명, 도시, 마일리지 from 고객
+where 도시 = '서울특별시'
+order by 마일리지 desc; -- order by 정렬 , desc 높은 순 대로
+
+-- 고객 : 고객번호, 고객회사명, 도시, 마일리지 조회
+-- 단 고객회사명순으로 출력
+select 고객번호, 고객회사명, 도시, 마일리지 from 고객
+order by 고객회사명;
+
+-- 고객 : 고객 정보를 상위 3개까지 조회
+-- limit n; : 상위 n개 데이터 추출
+-- limit n, m : n에서 m개의 데이터 추출
+select * from 고객 limit 3;
+
+-- 고객 : 마일리지가 많은 고객을 대상으로 상위 3명까지만 조회
+select * from 고객
+order by 마일리지 desc
+limit 3;
+
+-- 고객 : 마일리지가 많은 고객을 대상으로 조회
+-- 단, 페이지별로 5명씩 출력한다고 가정할 때
+-- 15페이지의 고객정보를 조회
+-- rn = (p - 1) * 5 
+select * from 고객
+order by 마일리지 desc
+limit 60, 5;
+
+-- 고객 : 도시만 조회 단, 중복될 경우 하나만 출력
+select 도시 from 고객;
+select distinct 도시 from 고객;
+
+-- 고객 : 담당자 직위가 대표 이사인 고객의 도시만 조회 
+-- 단 중복될 경우 하나만 출력
+
+select distinct 도시 from 고객
+where 담당자직위 = '대표 이사';
+
+-- 연산자 : 산술연산자, 23과 5에 대해 산술연산자 적용하기 
+select 23 + 5 "더하기", 23 - 5 "빼기", 23 * 5 "곱하기", 23 / 5 "나누기", 23 % 5 "나머지";
+
+-- 연산자 : 비교연산자, 23과 5에 대해 비교연산자 적용하기
+select 23 >= 5, 23 <= 5, 23 > 5, 23 < 5, 23 != 5, 23 <> 5 ;
+
+-- 고객 : 담당자가 대표 이사가 아닌 고객 정보 조회
+select * from 고객
+where  담당자직위 != '대표 이사';
+
+-- 연산자 : 논리연산자, 도시가 부산광역시면서 
+-- 마일리지가 1000보다 작은 고객
+select * from 고객
+where 도시 = '부산광역시' and 마일리지 < 1000;
+
+-- 고객 : 도시 정보가 없는 고객 조회
+
+update 고객 set 지역 = NULL where 지역 = '';  -- 지역이 '' 인 데이터에 null을 채워넣음
+commit;
+
+select  * from 고객 where 지역 = '';
+select  * from 고객 where 지역 = NUll ; -- (x)
+-- 컬럼에 null 이 저장된 데이터를 조회하려면 is null 사용
+select  * from 고객 where 지역 is NULL; -- where 지역 = NULL; 디비버
+
+-- 고객 : 직위가 영업 과장이거나 마케팅 과장인 고객 조회
+select  * from 고객 
+-- where 담당자직위 = '영업 과장' or 담당자직위 = '마케팅 과장';
+where 담당자직위 in ('영업 과장', '마케팅 과장');
+
+-- 고객 : 마일리지가 100000이상 200000이하인 고객 조회
+select  * from 고객 
+-- where 마일리지 >= 100000 and 마일리지 <= 200000;
+where 마일리지 between 100000 and 200000;]]></console>
+      <console name="실습01-DB개론" type="STANDARD" schema="main" session="Main"><![CDATA[select * from Book;
+
+select bookname, price from Book;
+
+select bookid, bookname, publisher, price from Book;
+
+select distinct publisher from Book;
+
+select * from Book
+where price < 20000 ;
+
+select * from Book
+where price between 10000 and 20000 ;
+
+select * from Book
+where publisher in ('굿스포츠', '대한미디어');
+
+select publisher from Book
+where bookname = '축구의 역사';
+
+select publisher from Book
+where bookname like '%축구%'
+
+select * from Book
+where bookname like '_구%';
+
+select * from Book
+where bookname like '%축구%' and price >= 20000 ;
+
+select * from Book
+where publisher = '굿스포츠' or publisher = '대한미디어'
+--where publisher in ('굿스포츠','대한미디어')
+
+select * from book order by bookname ;
+
+select * from book
+order by price, bookname;
+
+select * from book
+order by price desc, publisher ASC;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -33,6 +180,7 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="ebc15617-2955-4d9a-b5d5-7454b5720702" object-ref="consoles/pythonproject" />
+      <object connection-id="ebc15617-2955-4d9a-b5d5-7454b5720702" object-ref="consoles/sql01" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
@@ -40,6 +188,10 @@
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/sql/실습01-DB개론.sql" connection-id="ebc15617-2955-4d9a-b5d5-7454b5720702" session-id="MAIN" current-schema="main" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/sql01.sql" connection-id="ebc15617-2955-4d9a-b5d5-7454b5720702" session-id="MAIN" current-schema="main" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
