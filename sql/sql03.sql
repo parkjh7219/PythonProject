@@ -77,3 +77,36 @@ select  이름, 생일, leftstr('current_time')- leftstr(생일, 4) 나이,
 from 사원;
 
 -- 4번 5번
+
+select
+    이름, 생일,
+    strftime('%y','now') - strftime('%y', 생일 ) 연나이,
+    입사일, round(julianday('now') - julianday(입사일))입사일수,
+    date(입사일, '+ 500 days') 입사후500일
+from 사원;
+
+select
+    주문번호, 고객번호, 주문일,
+    strftime('%y', 주문일) 주문년도,
+    strftime('%m', 주문일) 주문월,
+    strftime('%d', 주문일) 주문일,
+    (cast(strftime('%m', 주문일)as INT) - 1 )/ 3 + 1 분기,
+    strftime('%w', 주문일) 주문요일
+from 주문;
+
+-- 주문 테이블에서 요청일보다 발송일이 7일 이상 늦은 주문내역 조회
+-- fm
+select
+    주문번호, 고객번호, 사원번호, 주문일, 요청일, 발송일,
+    julianday(발송일) - julianday(요청일) 지연일수
+from 주문
+where julianday(발송일) - julianday(요청일) >= 7
+order by julianday(발송일) - julianday(요청일) desc;
+
+-- 별칭 사용
+select
+    주문번호, 고객번호, 사원번호, 주문일, 요청일, 발송일,
+    julianday(발송일) - julianday(요청일) 지연일수
+from 주문
+where 지연일수 >= 7
+order by 지연일수 desc;

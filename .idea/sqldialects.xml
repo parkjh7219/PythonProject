@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/sql/sql01.sql" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/sql/sql02.sql" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/sql/sql03.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/sql/sql04.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/sql/sql05.sql" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/sql/실습01-DB개론.sql" dialect="SQLite" />
   </component>
 </project>
