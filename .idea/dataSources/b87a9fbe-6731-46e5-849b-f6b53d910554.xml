@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-11-21.01:43:19</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-11-25.07:05:58</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1616,634 +1616,681 @@
     <table id="576" parent="191" name="주문"/>
     <table id="577" parent="191" name="주문2"/>
     <table id="578" parent="191" name="주문세부"/>
-    <column id="579" parent="555" name="bookid">
+    <table id="579" parent="191" name="학생"/>
+    <column id="580" parent="555" name="bookid">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="580" parent="555" name="bookname">
+    <column id="581" parent="555" name="bookname">
       <Position>2</Position>
       <StoredType>VARCHAR(40)|0s</StoredType>
     </column>
-    <column id="581" parent="555" name="publisher">
+    <column id="582" parent="555" name="publisher">
       <Position>3</Position>
       <StoredType>VARCHAR(40)|0s</StoredType>
     </column>
-    <column id="582" parent="555" name="price">
+    <column id="583" parent="555" name="price">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <key id="583" parent="555">
+    <key id="584" parent="555">
       <ColNames>bookid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="584" parent="556" name="custid">
+    <column id="585" parent="556" name="custid">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="585" parent="556" name="name">
+    <column id="586" parent="556" name="name">
       <Position>2</Position>
       <StoredType>VARCHAR(40)|0s</StoredType>
     </column>
-    <column id="586" parent="556" name="address">
+    <column id="587" parent="556" name="address">
       <Position>3</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="587" parent="556" name="phone">
+    <column id="588" parent="556" name="phone">
       <Position>4</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <key id="588" parent="556">
+    <key id="589" parent="556">
       <ColNames>custid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="589" parent="557" name="DEPARTMENT_ID">
+    <column id="590" parent="557" name="DEPARTMENT_ID">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="590" parent="557" name="DEPARTMENT_NAME">
+    <column id="591" parent="557" name="DEPARTMENT_NAME">
       <Position>2</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="591" parent="557" name="MANAGER_ID">
+    <column id="592" parent="557" name="MANAGER_ID">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="592" parent="557" name="LOCATION_ID">
+    <column id="593" parent="557" name="LOCATION_ID">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="593" parent="558" name="DEPTNO">
+    <column id="594" parent="558" name="DEPTNO">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="594" parent="558" name="DNAME">
+    <column id="595" parent="558" name="DNAME">
       <Position>2</Position>
       <StoredType>varchar(14)|0s</StoredType>
     </column>
-    <column id="595" parent="558" name="LOC">
+    <column id="596" parent="558" name="LOC">
       <Position>3</Position>
       <StoredType>varchar(13)|0s</StoredType>
     </column>
-    <key id="596" parent="558">
+    <key id="597" parent="558">
       <ColNames>DEPTNO</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="597" parent="559" name="EMPNO">
+    <column id="598" parent="559" name="EMPNO">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="598" parent="559" name="ENAME">
+    <column id="599" parent="559" name="ENAME">
       <Position>2</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="599" parent="559" name="JOB">
+    <column id="600" parent="559" name="JOB">
       <Position>3</Position>
       <StoredType>varchar(9)|0s</StoredType>
     </column>
-    <column id="600" parent="559" name="MGR">
+    <column id="601" parent="559" name="MGR">
       <Position>4</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="601" parent="559" name="HIREDATE">
+    <column id="602" parent="559" name="HIREDATE">
       <Position>5</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="602" parent="559" name="SAL">
+    <column id="603" parent="559" name="SAL">
       <Position>6</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="603" parent="559" name="COMM">
+    <column id="604" parent="559" name="COMM">
       <Position>7</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="604" parent="559" name="DEPTNO">
+    <column id="605" parent="559" name="DEPTNO">
       <Position>8</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <foreign-key id="605" parent="559">
+    <foreign-key id="606" parent="559">
       <ColNames>DEPTNO</ColNames>
       <RefColNames>deptno</RefColNames>
       <RefTableName>DEPT</RefTableName>
     </foreign-key>
-    <key id="606" parent="559">
+    <key id="607" parent="559">
       <ColNames>EMPNO</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="607" parent="560" name="EMPLOYEE_ID">
+    <column id="608" parent="560" name="EMPLOYEE_ID">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="608" parent="560" name="FIRST_NAME">
+    <column id="609" parent="560" name="FIRST_NAME">
       <Position>2</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="609" parent="560" name="LAST_NAME">
+    <column id="610" parent="560" name="LAST_NAME">
       <Position>3</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="610" parent="560" name="EMAIL">
+    <column id="611" parent="560" name="EMAIL">
       <Position>4</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="611" parent="560" name="PHONE_NUMBER">
+    <column id="612" parent="560" name="PHONE_NUMBER">
       <Position>5</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="612" parent="560" name="HIRE_DATE">
+    <column id="613" parent="560" name="HIRE_DATE">
       <Position>6</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="613" parent="560" name="JOB_ID">
+    <column id="614" parent="560" name="JOB_ID">
       <Position>7</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="614" parent="560" name="SALARY">
+    <column id="615" parent="560" name="SALARY">
       <Position>8</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="615" parent="560" name="COMMISSION_PCT">
+    <column id="616" parent="560" name="COMMISSION_PCT">
       <Position>9</Position>
       <StoredType>REAL|0s</StoredType>
     </column>
-    <column id="616" parent="560" name="MANAGER_ID">
+    <column id="617" parent="560" name="MANAGER_ID">
       <Position>10</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="617" parent="560" name="DEPARTMENT_ID">
+    <column id="618" parent="560" name="DEPARTMENT_ID">
       <Position>11</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="618" parent="561" name="bookid">
+    <column id="619" parent="561" name="bookid">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="619" parent="561" name="bookname">
+    <column id="620" parent="561" name="bookname">
       <Position>2</Position>
       <StoredType>VARCHAR(40)|0s</StoredType>
     </column>
-    <column id="620" parent="561" name="publisher">
+    <column id="621" parent="561" name="publisher">
       <Position>3</Position>
       <StoredType>VARCHAR(40)|0s</StoredType>
     </column>
-    <column id="621" parent="561" name="price">
+    <column id="622" parent="561" name="price">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="622" parent="562" name="JOB_ID">
+    <column id="623" parent="562" name="JOB_ID">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="623" parent="562" name="JOB_TITLE">
+    <column id="624" parent="562" name="JOB_TITLE">
       <Position>2</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="624" parent="562" name="MIN_SALARY">
+    <column id="625" parent="562" name="MIN_SALARY">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="625" parent="562" name="MAX_SALARY">
+    <column id="626" parent="562" name="MAX_SALARY">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="626" parent="563" name="EMPLOYEE_ID">
+    <column id="627" parent="563" name="EMPLOYEE_ID">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="627" parent="563" name="START_DATE">
+    <column id="628" parent="563" name="START_DATE">
       <Position>2</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="628" parent="563" name="END_DATE">
+    <column id="629" parent="563" name="END_DATE">
       <Position>3</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="629" parent="563" name="JOB_ID">
+    <column id="630" parent="563" name="JOB_ID">
       <Position>4</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="630" parent="563" name="DEPARTMENT_ID">
+    <column id="631" parent="563" name="DEPARTMENT_ID">
       <Position>5</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="631" parent="564" name="orderid">
+    <column id="632" parent="564" name="orderid">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="632" parent="564" name="custid">
+    <column id="633" parent="564" name="custid">
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="633" parent="564" name="bookid">
+    <column id="634" parent="564" name="bookid">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="634" parent="564" name="saleprice">
+    <column id="635" parent="564" name="saleprice">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="635" parent="564" name="orderdate">
+    <column id="636" parent="564" name="orderdate">
       <Position>5</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <foreign-key id="636" parent="564">
+    <foreign-key id="637" parent="564">
       <ColNames>custid</ColNames>
       <RefColNames>custid</RefColNames>
       <RefTableName>Customer</RefTableName>
     </foreign-key>
-    <foreign-key id="637" parent="564">
+    <foreign-key id="638" parent="564">
       <ColNames>bookid</ColNames>
       <RefColNames>bookid</RefColNames>
       <RefTableName>Book</RefTableName>
     </foreign-key>
-    <key id="638" parent="564">
+    <key id="639" parent="564">
       <ColNames>orderid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="639" parent="565" name="GRADE">
+    <column id="640" parent="565" name="GRADE">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="640" parent="565" name="LOSAL">
+    <column id="641" parent="565" name="LOSAL">
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="641" parent="565" name="HISAL">
+    <column id="642" parent="565" name="HISAL">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="642" parent="566" name="type">
+    <column id="643" parent="566" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="643" parent="566" name="name">
+    <column id="644" parent="566" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="644" parent="566" name="tbl_name">
+    <column id="645" parent="566" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="645" parent="566" name="rootpage">
+    <column id="646" parent="566" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="646" parent="566" name="sql">
+    <column id="647" parent="566" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="647" parent="567" name="Year">
+    <column id="648" parent="567" name="Year">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="648" parent="567" name="City">
+    <column id="649" parent="567" name="City">
       <Position>2</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="649" parent="567" name="Sport">
+    <column id="650" parent="567" name="Sport">
       <Position>3</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="650" parent="567" name="Discipline">
+    <column id="651" parent="567" name="Discipline">
       <Position>4</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="651" parent="567" name="Athlete">
+    <column id="652" parent="567" name="Athlete">
       <Position>5</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="652" parent="567" name="Country">
+    <column id="653" parent="567" name="Country">
       <Position>6</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="653" parent="567" name="Gender">
+    <column id="654" parent="567" name="Gender">
       <Position>7</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="654" parent="567" name="Event">
+    <column id="655" parent="567" name="Event">
       <Position>8</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="655" parent="567" name="Medal">
+    <column id="656" parent="567" name="Medal">
       <Position>9</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="656" parent="568" name="고객번호">
+    <column id="657" parent="568" name="고객번호">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="657" parent="568" name="고객회사명">
+    <column id="658" parent="568" name="고객회사명">
       <Position>2</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="658" parent="568" name="담당자명">
+    <column id="659" parent="568" name="담당자명">
       <Position>3</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="659" parent="568" name="담당자직위">
+    <column id="660" parent="568" name="담당자직위">
       <Position>4</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="660" parent="568" name="주소">
+    <column id="661" parent="568" name="주소">
       <Position>5</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="661" parent="568" name="도시">
+    <column id="662" parent="568" name="도시">
       <Position>6</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="662" parent="568" name="지역">
+    <column id="663" parent="568" name="지역">
       <Position>7</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="663" parent="568" name="전화번호">
+    <column id="664" parent="568" name="전화번호">
       <Position>8</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="664" parent="568" name="마일리지">
+    <column id="665" parent="568" name="마일리지">
       <Position>9</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="665" parent="569" name="고객아이디">
+    <column id="666" parent="569" name="고객아이디">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <column id="666" parent="569" name="고객이름">
+    <column id="667" parent="569" name="고객이름">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR(10)|0s</StoredType>
     </column>
-    <column id="667" parent="569" name="나이">
+    <column id="668" parent="569" name="나이">
       <Position>3</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="668" parent="569" name="등급">
+    <column id="669" parent="569" name="등급">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(10)|0s</StoredType>
     </column>
-    <column id="669" parent="569" name="직업">
+    <column id="670" parent="569" name="직업">
       <Position>5</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <column id="670" parent="569" name="적립금">
+    <column id="671" parent="569" name="적립금">
       <DefaultExpression>0</DefaultExpression>
       <Position>6</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <index id="671" parent="569" name="sqlite_autoindex_고객2_1">
+    <index id="672" parent="569" name="sqlite_autoindex_고객2_1">
       <ColNames>고객아이디</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="672" parent="569">
+    <key id="673" parent="569">
       <ColNames>고객아이디</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_고객2_1</UnderlyingIndexName>
     </key>
-    <column id="673" parent="570" name="등급명">
+    <column id="674" parent="570" name="등급명">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="674" parent="570" name="하한마일리지">
+    <column id="675" parent="570" name="하한마일리지">
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="675" parent="570" name="상한마일리지">
+    <column id="676" parent="570" name="상한마일리지">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="676" parent="571" name="업체번호">
+    <column id="677" parent="571" name="업체번호">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>CHAR(3)|0s</StoredType>
     </column>
-    <column id="677" parent="571" name="업체명">
+    <column id="678" parent="571" name="업체명">
       <Position>2</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <column id="678" parent="571" name="주소">
+    <column id="679" parent="571" name="주소">
       <Position>3</Position>
       <StoredType>VARCHAR(100)|0s</StoredType>
     </column>
-    <column id="679" parent="571" name="전화번호">
+    <column id="680" parent="571" name="전화번호">
       <Position>4</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <index id="680" parent="571" name="sqlite_autoindex_배송업체_1">
+    <index id="681" parent="571" name="sqlite_autoindex_배송업체_1">
       <ColNames>업체번호</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="681" parent="571">
+    <key id="682" parent="571">
       <ColNames>업체번호</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_배송업체_1</UnderlyingIndexName>
     </key>
-    <column id="682" parent="572" name="부서번호">
+    <column id="683" parent="572" name="부서번호">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="683" parent="572" name="부서명">
+    <column id="684" parent="572" name="부서명">
       <Position>2</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="684" parent="573" name="사원번호">
+    <column id="685" parent="573" name="사원번호">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="685" parent="573" name="이름">
+    <column id="686" parent="573" name="이름">
       <Position>2</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="686" parent="573" name="영문이름">
+    <column id="687" parent="573" name="영문이름">
       <Position>3</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="687" parent="573" name="직위">
+    <column id="688" parent="573" name="직위">
       <Position>4</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="688" parent="573" name="성별">
+    <column id="689" parent="573" name="성별">
       <Position>5</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="689" parent="573" name="생일">
+    <column id="690" parent="573" name="생일">
       <Position>6</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="690" parent="573" name="입사일">
+    <column id="691" parent="573" name="입사일">
       <Position>7</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="691" parent="573" name="주소">
+    <column id="692" parent="573" name="주소">
       <Position>8</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="692" parent="573" name="도시">
+    <column id="693" parent="573" name="도시">
       <Position>9</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="693" parent="573" name="지역">
+    <column id="694" parent="573" name="지역">
       <Position>10</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="694" parent="573" name="집전화">
+    <column id="695" parent="573" name="집전화">
       <Position>11</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="695" parent="573" name="상사번호">
+    <column id="696" parent="573" name="상사번호">
       <Position>12</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="696" parent="573" name="부서번호">
+    <column id="697" parent="573" name="부서번호">
       <Position>13</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="697" parent="574" name="제품번호">
+    <column id="698" parent="574" name="제품번호">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="698" parent="574" name="제품명">
+    <column id="699" parent="574" name="제품명">
       <Position>2</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="699" parent="574" name="포장단위">
+    <column id="700" parent="574" name="포장단위">
       <Position>3</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="700" parent="574" name="단가">
+    <column id="701" parent="574" name="단가">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="701" parent="574" name="재고">
+    <column id="702" parent="574" name="재고">
       <Position>5</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <check id="702" parent="575">
+    <check id="703" parent="575">
       <Predicate>재고량 &gt;= 0 AND 재고량 &lt;=10000</Predicate>
     </check>
-    <column id="703" parent="575" name="제품번호">
+    <column id="704" parent="575" name="제품번호">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>CHAR(3)|0s</StoredType>
     </column>
-    <column id="704" parent="575" name="제품명">
+    <column id="705" parent="575" name="제품명">
       <Position>2</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <column id="705" parent="575" name="재고량">
+    <column id="706" parent="575" name="재고량">
       <Position>3</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="706" parent="575" name="단가">
+    <column id="707" parent="575" name="단가">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="707" parent="575" name="제조업체">
+    <column id="708" parent="575" name="제조업체">
       <Position>5</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <index id="708" parent="575" name="sqlite_autoindex_제품2_1">
+    <index id="709" parent="575" name="sqlite_autoindex_제품2_1">
       <ColNames>제품번호</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="709" parent="575">
+    <key id="710" parent="575">
       <ColNames>제품번호</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_제품2_1</UnderlyingIndexName>
     </key>
-    <column id="710" parent="576" name="주문번호">
+    <column id="711" parent="576" name="주문번호">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="711" parent="576" name="고객번호">
+    <column id="712" parent="576" name="고객번호">
       <Position>2</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="712" parent="576" name="사원번호">
+    <column id="713" parent="576" name="사원번호">
       <Position>3</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="713" parent="576" name="주문일">
+    <column id="714" parent="576" name="주문일">
       <Position>4</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="714" parent="576" name="요청일">
+    <column id="715" parent="576" name="요청일">
       <Position>5</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="715" parent="576" name="발송일">
+    <column id="716" parent="576" name="발송일">
       <Position>6</Position>
       <StoredType>NVARCHAR(50)|0s</StoredType>
     </column>
-    <column id="716" parent="577" name="주문번호">
+    <column id="717" parent="577" name="주문번호">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>CHAR(3)|0s</StoredType>
     </column>
-    <column id="717" parent="577" name="주문고객">
+    <column id="718" parent="577" name="주문고객">
       <Position>2</Position>
       <StoredType>VARCHAR(20)|0s</StoredType>
     </column>
-    <column id="718" parent="577" name="주문제품">
+    <column id="719" parent="577" name="주문제품">
       <Position>3</Position>
       <StoredType>CHAR(3)|0s</StoredType>
     </column>
-    <column id="719" parent="577" name="수량">
+    <column id="720" parent="577" name="수량">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="720" parent="577" name="배송지">
+    <column id="721" parent="577" name="배송지">
       <Position>5</Position>
       <StoredType>VARCHAR(30)|0s</StoredType>
     </column>
-    <column id="721" parent="577" name="주문일자">
+    <column id="722" parent="577" name="주문일자">
       <Position>6</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <foreign-key id="722" parent="577">
+    <foreign-key id="723" parent="577">
       <ColNames>주문고객</ColNames>
       <RefColNames>고객아이디</RefColNames>
       <RefTableName>고객2</RefTableName>
     </foreign-key>
-    <foreign-key id="723" parent="577">
+    <foreign-key id="724" parent="577">
       <ColNames>주문제품</ColNames>
       <RefColNames>제품번호</RefColNames>
       <RefTableName>제품2</RefTableName>
     </foreign-key>
-    <index id="724" parent="577" name="sqlite_autoindex_주문2_1">
+    <index id="725" parent="577" name="sqlite_autoindex_주문2_1">
       <ColNames>주문번호</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="725" parent="577">
+    <key id="726" parent="577">
       <ColNames>주문번호</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_주문2_1</UnderlyingIndexName>
     </key>
-    <column id="726" parent="578" name="주문번호">
+    <column id="727" parent="578" name="주문번호">
       <Position>1</Position>
       <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="727" parent="578" name="제품번호">
+    <column id="728" parent="578" name="제품번호">
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="728" parent="578" name="단가">
+    <column id="729" parent="578" name="단가">
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="729" parent="578" name="주문수량">
+    <column id="730" parent="578" name="주문수량">
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="730" parent="578" name="할인율">
+    <column id="731" parent="578" name="할인율">
       <Position>5</Position>
       <StoredType>REAL|0s</StoredType>
     </column>
+    <check id="732" parent="579">
+      <Predicate>성별 IN(&apos;남&apos;,&apos;여&apos;)</Predicate>
+    </check>
+    <column id="733" parent="579" name="학번">
+      <Position>1</Position>
+      <StoredType>INT|0s</StoredType>
+    </column>
+    <column id="734" parent="579" name="이름">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>VARCHAR(10)|0s</StoredType>
+    </column>
+    <column id="735" parent="579" name="주소">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>VARCHAR(100)|0s</StoredType>
+    </column>
+    <column id="736" parent="579" name="생년원일">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>DATETIME|0s</StoredType>
+    </column>
+    <column id="737" parent="579" name="성별">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>CHAR(2)|0s</StoredType>
+    </column>
+    <column id="738" parent="579" name="학과명">
+      <Position>6</Position>
+      <StoredType>VARCHAR(50)|0s</StoredType>
+    </column>
+    <column id="739" parent="579" name="교수">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>7</Position>
+      <StoredType>INT|0s</StoredType>
+    </column>
+    <index id="740" parent="579" name="sqlite_autoindex_학생_1">
+      <ColNames>학번</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="741" parent="579">
+      <ColNames>학번</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_학생_1</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
