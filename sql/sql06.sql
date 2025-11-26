@@ -57,10 +57,10 @@ SELECT COUNT(주문번호) 주문건수 FROM 주문;
 -- 즉, 최소 ~ 값보다 클 경우를 조회
 -- ALL : 서브 쿼리 결과 중 모든 결과를 만족하면 참
 -- 즉. 최대 어떤 값 보다 클 경우를 조회
--- SELECT 고객회사명, 마일리지 FROM 고객
--- WHERE 마일리지 > ANY (SELECT 마일리지 FROM 고객
--- WHERE 도시 = '부산광역시') ;
--- ONE COMPILER , POSTGRE SQL로 실행
+SELECT 고객회사명, 마일리지 FROM 고객
+WHERE 마일리지 > ANY (SELECT 마일리지 FROM 고객
+WHERE 도시 = '부산광역시') ;
+ONE COMPILER , POSTGRE SQL로 실행
 -- 바탕화면 고객 TXT 노트패드로 실행 후 붙어넣기 하고 위 코드 붙여넣기 실행
 -- SELECT 고객회사명, 마일리지 FROM 고객
 -- WHERE 마일리지 > ALL (SELECT 마일리지 FROM 고객
@@ -109,7 +109,7 @@ WHERE P.제품번호 = OD.제품번호 AND EXISTS(
     SELECT 주문번호 FROM 주문 O
         WHERE O.주문번호 = OD.주문번호));
 
--- 한번이라도 주문한 적이 없는 제품 조회
+--
 SELECT DISTINCT 제품명
 FROM 주문 RIGHT JOIN 주문세부
 USING(주문번호)

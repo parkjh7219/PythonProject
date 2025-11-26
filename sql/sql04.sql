@@ -5,12 +5,16 @@
 -- 통계, 데이터 분석에 자주 사용되는 함수
 -- count, sun, avg, max, min
 -- 주로 그룹별 분석(group by절)과 함께 사용
+
 select 마일리지 from 고객;
 
-select count(마일리지) 고객수, count(*) 고객수2 from 고객; -- 첫 번째 방식 권장
+select count(마일리지) 고객수 from 고객; -- 첫 번째 방식 권장
+select count(*) 고객수2 from 고객;
 
 -- count 함수 적용 시 null은 제외
 -- 또한, 중복까지 포함해서 갯수 파악
+
+
 -- 예제 4-1, 4-2
 select
     count(고객번호),
@@ -71,8 +75,9 @@ from 고객
 group by 담당자직위, 도시
 order by 담당자직위, 고객수 desc;
 
--- 도시별 고객수, 평균 마일리지 조회
--- 단, 고객수가 10명 이상일 경우만 조회
+-- 4-6
+-- 도시별 고객수, 평균 마일리지 조회 단, 고객수가 10명 이상일 경우만 조회
+
 select
     도시, count(고객번호) 고객수,
     round(avg(마일리지),2) 평균마일리지

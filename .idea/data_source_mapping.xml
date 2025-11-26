@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/b87a9fbe-6731-46e5-849b-f6b53d910554/console.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql01.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql02.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql03.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql04.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql05.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql06.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/sql07.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
-    <file url="file://$PROJECT_DIR$/sql/실습01-DB개론.sql" value="b87a9fbe-6731-46e5-849b-f6b53d910554" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/5279ae4c-5c35-46e8-adcc-b126b38ef442/console.sql" value="5279ae4c-5c35-46e8-adcc-b126b38ef442" />
   </component>
 </project>
