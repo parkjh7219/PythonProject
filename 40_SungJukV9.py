@@ -4,9 +4,10 @@
 # 성적처리의 CRUD를 메뉴식으로 구현
 # 성적 데이터를 sungjuk.csv파일에 저장
 # 성적처리 CRUD 기능 함수로 구조화 : 모듈명 sungjukv9_lib
+#
 
 
-from parkjh7269.sungjukv9_lib import menus
+from parkjh7269.sungjukv9_lib import menus, sungjuk_logging
 from parkjh7269.sungjukv9_lib import input_sungjuk, compute_sungjuk, add_sungjuk
 from parkjh7269.sungjukv9_lib import readall_sungjuk
 from parkjh7269.sungjukv9_lib import readone_sungjuk
@@ -27,7 +28,7 @@ from parkjh7269.sungjukv9_lib import remove_sungjuk
 #   regdate datetime default current_timestamp
 #)
 
-# sungjuks = load_sungjuk()
+sungjuk_logging()
 
 while True:
     job = input(menus)

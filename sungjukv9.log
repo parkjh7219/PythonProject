@@ -1,0 +1,13 @@
+2025-11-27 10:01:42,574 INFO --- readall_sungjuk 호출됨
+2025-11-27 10:05:54,957 INFO --- readall_sungjuk 호출됨
+2025-11-27 10:05:57,693 INFO --- readone_sungjuk 호출됨
+2025-11-27 10:37:18,312 INFO --- readone_sungjuk 호출됨
+2025-11-27 10:37:29,854 INFO --- remove_sungjuk 호출됨
+2025-11-27 10:37:33,000 INFO --- readall_sungjuk 호출됨
+2025-11-27 10:37:36,351 INFO --- input_sungjuk 호출됨
+2025-11-27 10:37:39,190 INFO --- compute_sungjuk 호출됨
+2025-11-27 10:37:39,196 INFO --- add_sungjuk 호출됨 
+2025-11-27 10:38:00,872 INFO --- readall_sungjuk 호출됨
+2025-11-27 11:07:57,838 INFO --- compute_sungjuk 호출됨
+2025-11-27 11:07:57,845 INFO --- modify_sungjuk 호출됨
+2025-11-27 11:08:03,249 INFO --- readone_sungjuk 호출됨

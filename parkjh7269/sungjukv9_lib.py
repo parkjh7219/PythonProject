@@ -29,6 +29,7 @@ header2 = '''
 
 dbfile = 'sungjuk.db'
 
+
 def sungjuk_logging():
     """ 로깅 설정을 초기화하는 함수"""
     log.basicConfig(
@@ -37,11 +38,10 @@ def sungjuk_logging():
         format = '%(asctime)s %(levelname)s --- %(message)s'
     )
 
+
 def input_sungjuk():
     """
     성적 데이터를 입력받는 함수
-
-    :return:
     """
     log.info('input_sungjuk 호출됨')
     try:
@@ -60,8 +60,6 @@ def input_sungjuk():
 def compute_sungjuk(name, kor, eng, mat):
     """
     성적 데이터에 대한 총점,평균,학점 처리
-
-    :return:
     """
     tot = kor + eng + mat
     avg = tot / 3
@@ -103,9 +101,24 @@ def readall_sungjuk():
     저장된 성적데이터 중 이름/국어/영어/수학만 출력
     """
     result = ''
-    sungjuks =[]
-    for sjno, name, kor, eng, mat, tot, avg, grd in sungjuks:
-        result += f'{sjno:3d} {name:5s} {kor:4d} {eng:4d} {mat:4d}\n'
+
+    sql = "select sjno,name,kor,eng,mat from sungjuk"
+
+    if os.path.exists(dbfile):
+        conn = sqlite3.connect(dbfile)
+        print('readall_sungjuk - DB 연결 성공!!')
+
+        cursor = conn.cursor()
+        cursor.execute(sql)
+
+        sungjuks = cursor.fetchall()
+        conn.close()
+        
+    else:
+        print('readall_sungjuk - DB 연결 실패 ! - 파일이 존재하지 않음')
+
+    for sj in sungjuks:
+        result += f'{ sj[0]:3d} {sj[1]:5s} {sj[2]:4d} {sj[3]:4d} {sj[4]:4d}\n'
 
     print(f'{header1}{result}')
     log.info('readall_sungjuk 호출됨')
@@ -113,20 +126,32 @@ def readall_sungjuk():
 
 def readone_sungjuk():
     """
-    이름으로 성적데이터를 조회해서 모두 출력
+    학생번호로 성적데이터를 조회해서 모두 출력
     """
     result = ''
-    sungjuks =[]
+    sql = "select * from sungjuk where sjno = ?"
     try:
-        namekey = input('조회할 학생 이름은?: ')
+        sjno = int(input('조회할 학생 번호는?: '))
 
-        for sjno, name, kor, eng, mat, tot, avg, grd in sungjuks:
-            if namekey == name:
-                result += f'{sjno:3d} {name:5s} {kor:4d} {eng:4d} {mat:4d} ' \
-                          f'{tot:4d} {avg:4.2f} {grd:4s}\n'
+        if os.path.exists(dbfile):
+            conn = sqlite3.connect(dbfile)
+            print('readone_sungjuk - DB 연결 성공!!')
+
+            cursor = conn.cursor()
+            cursor.execute(sql, (sjno,))
+
+            sj = cursor.fetchone()
+            conn.close()
+        else:
+            print('readone_sungjuk - DB 연결 실패 ! - 파일이 존재하지 않음')
+
+        if sj: # 성적 데이터 조회되었다면
+            result += f'{sj[0]:3d} {sj[1]:5s} {sj[2]:4d} {sj[3]:4d} {sj[4]:4d} ' \
+                      f'{sj[5]:4d} {sj[6]:4.2f} {sj[7]:4s} {sj[8]}\n'
 
         print(f'{header2}{result}')
         log.info('readone_sungjuk 호출됨')
+
     except ValueError as ex:
         print('숫자만 입력하세요')
         log.error(f'readone_sungjuk 오류발생 {type(ex)}')
@@ -136,26 +161,57 @@ def modify_sungjuk():
     """
     기존 성적데이터를 새로운 성적데이터로 수정하는 함수
     """
-
-    sungjuks =[]
     result = '해당 학생번호가 존재하지 않아요!!'
-    sjno = int(input('수정할 학생 번호는? '))
 
-    for i in range(len(sungjuks)):
-        if sjno == sungjuks[i][0]:
-            kor = int(input(f'새로운 국어점수는? ({sungjuks[i][2]}): '))
-            eng = int(input(f'새로운 영어점수는? ({sungjuks[i][3]}): '))
-            mat = int(input(f'새로운 수학점수는? ({sungjuks[i][4]}): '))
+    sql1 = 'select * from sungjuk where sjno = ?'
+    sql2 = '''update sungjuk set kor = ?, eng = ?, mat = ?,
+           tot = ?, avg = ?, grd = ? where sjno = ?'''
 
-            sjone = compute_sungjuk(sungjuks[i][1], kor, eng, mat)
-            sjone.insert(0, sjno)
-            sungjuks[i] = sjone
+    try:
+        sjno = int(input('수정할 학생 번호는? '))
+        
+        # 수정할 성적 데이터를 성적 테이블에서 가져옴
+        if os.path.exists(dbfile):
+            conn = sqlite3.connect(dbfile)
+            print('modify_sungjuk - DB 연결 성공 1!!')
 
-            result = '성적 수정이 완료되었습니다!!'
-            break
+            cursor = conn.cursor()
+            cursor.execute(sql1, (sjno,))
 
-    print(result)
-    log.info('modify_sungjuk 호출됨')
+            sj = cursor.fetchone()
+            conn.close()
+        else:
+            print('modify_sungjuk - DB 연결 실패 1 ! - 파일이 존재하지 않음')
+            
+        if not sj: # 수정할 성적 데이터가 없다면
+            print('수정할 데이터가 없어요')
+            return # 함수 실행을 중단
+        
+        # 새로운 성적 데이터를 입력 받아 성적처리 한 뒤 성적 테이블에 적용
+        kor = int(input(f'새로운 국어점수는? ({sj[2]}): '))
+        eng = int(input(f'새로운 영어점수는? ({sj[3]}): '))
+        mat = int(input(f'새로운 수학점수는? ({sj[4]}): '))
+
+        sjone = compute_sungjuk(sj[1], kor, eng, mat)
+
+        if os.path.exists(dbfile):
+            conn = sqlite3.connect(dbfile)
+            print('modify_sungjuk - DB 연결 성공 2!!')
+
+            cursor = conn.cursor()
+            cursor.execute(sql2, (kor,eng,mat,sjone[4],sjone[5],sjone[6],sjno,))
+            conn.commit()
+            conn.close()
+
+        else:
+            print('modify_sungjuk - DB 연결 실패 2 ! - 파일이 존재하지 않음')
+
+        result = '성적 수정이 완료되었습니다!!'
+        print(result)
+        log.info('modify_sungjuk 호출됨')
+    except ValueError as ex:
+        print('성적 수정시 숫자만 입력하세요')
+        log.error(f'modify_sungjuk 오류 발생 {type(ex)}')
 
 
 def remove_sungjuk():
@@ -163,16 +219,28 @@ def remove_sungjuk():
     특정 학생의 성적데이터를 삭제하는 함수
     """
 
-    sungjuks =[]
     result = '해당 학생번호가 존재하지 않아요!!'
-    sjno =  int(input('삭제할 학생 번호는? '))
+    sql = "delete from sungjuk where sjno = ?"
 
-    for i in range(len(sungjuks)):
-        if sjno == sungjuks[i][0]:
-            sungjuks.pop(i)
-            result = '성적 데이터가 삭제되었습니다!!'
-            break
+    try:
+        sjno =  int(input('삭제할 학생 번호는? '))
 
-    print(result)
-    log.info('remove_sungjuk 호출됨')
+        if os.path.exists(dbfile):
+            conn = sqlite3.connect(dbfile)
+            print('remove_sungjuk - DB 연결 성공!!')
+
+            cursor = conn.cursor()
+            cursor.execute(sql, (sjno,))
+
+            conn.commit()
+            conn.close()
+
+            print('성적 데이터가 삭제되었습니다!!')
+            log.info('remove_sungjuk 호출됨')
+        else:
+            print('remove_sungjuk - DB 연결 실패 ! - 파일이 존재하지 않음')
+
+    except ValueError as ex:
+        print('성적 삭제시 숫자만 입력하세요')
+        log.error(f' remove_sungjuk 오류 발생 {type(ex)}')
 
