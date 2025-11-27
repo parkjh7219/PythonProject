@@ -3,18 +3,19 @@
 # 총점, 평균, 학점을 처리한 뒤 결과 출력 - 학생번호도 추가
 # 성적처리의 CRUD를 메뉴식으로 구현
 # 성적 데이터를 sungjuk.csv파일에 저장
-# 성적처리 CRUD 기능 함수로 구조화 : 모듈명 sungjukv9_lib
+# 성적처리 CRUD 기능 함수로 구조화 : 모듈명 sungjukv10_lib
+# sqlite 처리코드를 별도의 모듈로 분리 : sungjukv10_dao
 # 예외처리 코드 추가 - input_sungjuk, modify_sungjuk, remove_sungjuk, load_sungjuk
-# 예외 발생시 로깅 메세지도 추가 - sungjuk_logging, sungjukv9.log
-#
+# 예외 발생시 로깅 메세지도 추가 - sungjuk_logging, sungjukv10.log
 
 
-from parkjh7269.sungjukv9_lib import menus, sungjuk_logging
-from parkjh7269.sungjukv9_lib import input_sungjuk, compute_sungjuk, add_sungjuk
-from parkjh7269.sungjukv9_lib import readall_sungjuk
-from parkjh7269.sungjukv9_lib import readone_sungjuk
-from parkjh7269.sungjukv9_lib import modify_sungjuk
-from parkjh7269.sungjukv9_lib import remove_sungjuk
+
+from parkjh7269.sungjukv10_lib import menus, sungjuk_logging
+from parkjh7269.sungjukv10_lib import input_sungjuk, compute_sungjuk, add_sungjuk
+from parkjh7269.sungjukv10_lib import readall_sungjuk
+from parkjh7269.sungjukv10_lib import readone_sungjuk
+from parkjh7269.sungjukv10_lib import modify_sungjuk
+from parkjh7269.sungjukv10_lib import remove_sungjuk
 
 # sungjik 테이블
 
