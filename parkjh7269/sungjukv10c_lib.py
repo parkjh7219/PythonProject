@@ -1,20 +1,20 @@
-# 성적 처리프로그램 V10b용 모듈
-# sungjukv10 - sunjukv10b_lib - sunjukv10b_dao
+# 성적 처리프로그램 V10c용 모듈
+# sungjukv10 - sunjukv10c_lib - sunjukv10c_dao
 
 
 import logging as log
-from parkjh7269.sungjukv10b_dao import manipulate_query
-from parkjh7269.sungjukv10b_dao import retrieve_query
-from parkjh7269.sungjukv10b_dao import delete_sungjuk_sql
-from parkjh7269.sungjukv10b_dao import insert_sungjuk_sql
-from parkjh7269.sungjukv10b_dao import update_sungjuk_sql
-from parkjh7269.sungjukv10b_dao import select_sungjuk_sql
-from parkjh7269.sungjukv10b_dao import selectone_sungjuk_sql
+from parkjh7269.sungjukv10c_dao import manipulate_query
+from parkjh7269.sungjukv10c_dao import retrieve_query
+from parkjh7269.sungjukv10c_dao import delete_sungjuk_sql
+from parkjh7269.sungjukv10c_dao import insert_sungjuk_sql
+from parkjh7269.sungjukv10c_dao import update_sungjuk_sql
+from parkjh7269.sungjukv10c_dao import select_sungjuk_sql
+from parkjh7269.sungjukv10c_dao import selectone_sungjuk_sql
 
 
 menus = f'''
 -------------------
- 성적처리 프로그램 V10b
+ 성적처리 프로그램 V10c
 -------------------
 1. 성적데이터 입력
 2. 성적데이터 조회
@@ -41,7 +41,7 @@ dbfile = 'sungjuk.db'
 def sungjuk_logging():
     """ 로깅 설정을 초기화하는 함수"""
     log.basicConfig(
-        filename = 'sungjukv10b.log',
+        filename = 'sungjukv10c.log',
         level= log.INFO , encoding= 'utf-8',
         format = '%(asctime)s %(levelname)s --- %(message)s'
     )

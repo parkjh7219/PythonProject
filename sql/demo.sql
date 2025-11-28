@@ -70,3 +70,5 @@ INSERT INTO 주문2 VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구',
 INSERT INTO 주문2 VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '22/04/10');
 INSERT INTO 주문2 VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '22/04/11');
 INSERT INTO 주문2 VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '22/05/22');
+
+commit
